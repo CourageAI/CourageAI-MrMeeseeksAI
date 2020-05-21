@@ -16,7 +16,7 @@ jobs:
           env:
             licence_key: ${{ secrets.UNITY_LICENCE_DECRYPT_KEY }}
           run: |
-            openssl aes-256-cbc -d -in .github/Unity_v2019.x.ulf.enc -k "$licence_key" >> .github/Unity_v2019.x.ulf
+            openssl aes-256-cbc -d -in .github/Unity_v2019.x.ulf.enc -k ${{ licence_key }} >> .github/Unity_v2019.x.ulf
         
         # Activate unity
         - name: Activate Unity
