@@ -3,6 +3,8 @@ on:
     pull_request:
         branches:
             - master
+env:
+    licence_key: ${{ secrets.UNITY_LICENCE_DECRYPT_KEY }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,8 +15,6 @@ jobs:
 
         - name: Decrypt the license file
           shell: bash
-          env:
-            licence_key: ${{ secrets.UNITY_LICENCE_DECRYPT_KEY }}
           run: |
             openssl aes-256-cbc -d -in .github/Unity_v2019.x.ulf.enc -k ${{ licence_key }} >> .github/Unity_v2019.x.ulf
         
