@@ -19,7 +19,7 @@ jobs:
         unityVersion:
           - 2019.3.13f1
         targetPlatform:
-          - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
+            - WebGL
     steps:
       - uses: actions/checkout@v2
         with:
