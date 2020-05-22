@@ -19,7 +19,7 @@ jobs:
         unityVersion:
           - 2019.3.13f1
         targetPlatform:
-            - WebGL
+            - StandaloneOSX # Build a macOS standalone (Intel 64-bit)
     steps:
       - uses: actions/checkout@v2
         with:
@@ -33,7 +33,6 @@ jobs:
             Library-
       - uses: webbertakken/unity-builder@v0.11
         with:
-          projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
       - uses: actions/upload-artifact@v1
